@@ -1,0 +1,190 @@
+/* Root Variables */
+:root {
+  --primary: #38bdf8;
+  --dark: #0f172a;
+  --light: #ffffff;
+}
+
+/* Main Section */
+.home {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+
+  background: url("/background.jpg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--light);
+}
+
+/* Dark Overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0.7),
+    rgba(15, 23, 42, 0.85)
+  );
+  backdrop-filter: blur(2px);
+}
+
+/* Content Container */
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 20px;
+
+  animation: fadeSlide 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Title */
+.title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+
+  transform: translateY(40px);
+  opacity: 0;
+  animation: textReveal 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  margin-bottom: 35px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: textReveal 1s ease forwards;
+  animation-delay: 0.6s;
+}
+
+/* Button */
+.cta-btn {
+  display: inline-block;
+  padding: 14px 40px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+  background: var(--primary);
+  color: var(--dark);
+
+  transform: translateY(20px);
+  opacity: 0;
+  animation: textReveal 1s ease forwards;
+  animation-delay: 0.9s;
+
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  will-change: transform;
+}
+
+/* Hover Effect (GPU optimized) */
+.cta-btn:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(56, 189, 248, 0.4);
+}
+
+/* Keyframe Animations */
+@keyframes textReveal {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Smooth Performance Optimization */
+.home,
+.content,
+.cta-btn {
+  will-change: transform, opacity;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .home {
+    padding: 20px;
+  }
+}
+/* Remove default margin */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Main Home Section */
+.home {
+  position: relative;
+  height: 100vh;          /* Full screen height */
+  width: 100%;
+  overflow: hidden;
+
+  /* Background Image */
+  background-image: url("/college.png");
+  background-size: cover;      /* Fill entire screen */
+  background-position: center; /* Keep image centered */
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Dark overlay for text visibility */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Content */
+.content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding: 20px;
+}
+
+/* Title */
+.title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 20px;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* Button */
+.cta-btn {
+  display: inline-block;
+  padding: 12px 35px;
+  background: #38bdf8;
+  color: #0f172a;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}

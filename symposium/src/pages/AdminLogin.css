@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+/* ─── Variables ─────────────────────────────────────────────────── */
+:root {
+  --accent:       #00f5c4;
+  --accent-glow:  rgba(0, 245, 196, 0.3);
+  --danger:       rgba(239, 68, 68, 0.5);
+  --font-display: 'Orbitron', sans-serif;
+  --font-body:    'Rajdhani', sans-serif;
+}
+
+/* ─── Reset ─────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* ─── Container ──────────────────────────────────────────────────── */
+.admin-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  background-image:
+    linear-gradient(
+      170deg,
+      rgba(2, 8, 16, 0.85) 0%,
+      rgba(7, 15, 30, 0.80) 50%,
+      rgba(2, 12, 26, 0.88) 100%
+    ),
+    url('/college1.avif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  font-family: var(--font-body);
+}
+
+/* ─── Ambient Glow ───────────────────────────────────────────────── */
+.admin-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 245, 196, 0.12) 0%,
+    transparent 70%
+  );
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0.4;
+  z-index: 0;
+}
+
+/* ─── Scanline ───────────────────────────────────────────────────── */
+.admin-scanline {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 245, 196, 0.6) 30%,
+    rgba(0, 245, 196, 0.9) 50%,
+    rgba(0, 245, 196, 0.6) 70%,
+    transparent
+  );
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+/* ─── Grid lines ─────────────────────────────────────────────────── */
+.admin-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(0, 245, 196, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 245, 196, 0.025) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 0;
+}
+
+/* ─── Particles ──────────────────────────────────────────────────── */
+.admin-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.a-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.5;
+}
+
+.a-particle:nth-child(odd) {
+  background: #818cf8;
+  width: 2px;
+  height: 2px;
+}
+
+.a-particle:nth-child(3n) {
+  background: #f97316;
+}
+
+/* ─── Form Card ──────────────────────────────────────────────────── */
+.admin-form {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 420px;
+  padding: 48px 40px 40px;
+  border-radius: 18px;
+
+  background: rgba(5, 12, 25, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(0, 245, 196, 0.15);
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  text-align: center;
+  will-change: transform;
+  overflow: hidden;
+}
+
+/* ─── Top Accent Bar ─────────────────────────────────────────────── */
+.form-accent-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent) 30%,
+    var(--accent) 70%,
+    transparent
+  );
+  border-radius: 2px 2px 0 0;
+}
+
+/* Corner brackets */
+.admin-form::before,
+.admin-form::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: rgba(0, 245, 196, 0.5);
+  border-style: solid;
+}
+
+.admin-form::before {
+  top: 10px;
+  left: 10px;
+  border-width: 1.5px 0 0 1.5px;
+}
+
+.admin-form::after {
+  bottom: 10px;
+  right: 10px;
+  border-width: 0 1.5px 1.5px 0;
+}
+
+/* ─── Lock Icon ──────────────────────────────────────────────────── */
+.form-lock-icon {
+  font-size: 2.2rem;
+  margin-bottom: 14px;
+  filter: drop-shadow(0 0 10px var(--accent));
+}
+
+/* ─── Title ──────────────────────────────────────────────────────── */
+.admin-title {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #f1f5f9;
+  margin-bottom: 6px;
+  will-change: transform;
+}
+
+/* ─── Subtitle ───────────────────────────────────────────────────── */
+.admin-subtitle {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.65;
+  margin-bottom: 36px;
+}
+
+/* ─── Input Group ────────────────────────────────────────────────── */
+.input-group {
+  position: relative;
+  text-align: left;
+  margin-bottom: 28px;
+  will-change: transform, opacity;
+}
+
+.input-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(0, 245, 196, 0.6);
+  margin-bottom: 8px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  color: #f1f5f9;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  outline: none;
+  transition: border-bottom-color 0.3s ease;
+}
+
+.input-group input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Autofill override */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #f1f5f9;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: 0 0 0 1000px transparent inset;
+}
+
+/* ─── Input Focus Glow Bar ───────────────────────────────────────── */
+.input-glow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  transform: scaleX(0);
+  transform-origin: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: none; /* GSAP handles this */
+}
+
+/* ─── Submit Button ──────────────────────────────────────────────── */
+.admin-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 13px 0;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #020810;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  will-change: transform;
+  position: relative;
+  overflow: hidden;
+  transition: filter 0.2s ease;
+}
+
+.admin-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Shimmer sweep */
+.admin-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.45s ease;
+}
+
+.admin-btn:hover:not(:disabled)::before {
+  left: 160%;
+}
+
+/* ─── Loading Dots ───────────────────────────────────────────────── */
+.btn-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #020810;
+  animation: dotPulse 1.2s ease-in-out infinite;
+}
+
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dotPulse {
+  0%, 80%, 100% { transform: scale(0.7); opacity: 0.5; }
+  40%           { transform: scale(1);   opacity: 1;   }
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .admin-form {
+    margin: 20px;
+    padding: 36px 24px 32px;
+  }
+
+  .admin-title {
+    font-size: 1.35rem;
+    letter-spacing: 2px;
+  }
+}

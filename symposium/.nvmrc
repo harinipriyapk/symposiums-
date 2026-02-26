@@ -1,0 +1,18 @@
+# .env  –  place this in your backend folder (same folder as server.js)
+# NEVER commit this file to git — add .env to .gitignore
+
+# Your Gmail address (the one that sends emails)
+GMAIL_USER=yourgmail@gmail.com
+
+# Gmail App Password (16-character code — NOT your real Gmail password)
+# How to get it:
+#   1. myaccount.google.com -> Security -> 2-Step Verification (must be ON)
+#   2. Search "App Passwords" -> Select app: Mail -> Device: Other -> "Symposium"
+#   3. Copy the 16-char code here
+GMAIL_PASS=xxxxxxxxxxxxxxxx
+
+# Admin email that receives new registration alerts
+ADMIN_EMAIL=admin@gmail.com
+
+# Server port (optional, defaults to 5000)
+PORT=5000
